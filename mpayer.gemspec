@@ -7,9 +7,9 @@ Gem::Specification.new do |spec|
   spec.name          = "mpayer"
   spec.version       = Mpayer::VERSION
   spec.authors       = ["Charlie Chuck"]
-  spec.email         = ["charles.ongao@zegetech.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.email         = ["chalcchuck@gmail.com"]
+  spec.summary       = %q{A ruby library for Mpayer}
+  spec.description   = %q{A ruby library for Mpayer.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -20,4 +20,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
+
+  spec.add_dependency "httparty", '~> 0.13.1'
 end
