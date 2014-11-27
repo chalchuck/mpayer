@@ -1,4 +1,3 @@
-# coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'mpayer/version'
@@ -6,7 +5,7 @@ require 'mpayer/version'
 Gem::Specification.new do |spec|
   spec.name          = "mpayer"
   spec.version       = Mpayer::VERSION
-  spec.authors       = ["Charlie Chuck"]
+  spec.authors       = ["Charles Chuck"]
   spec.email         = ["chalcchuck@gmail.com"]
   spec.summary       = %q{A ruby library for Mpayer}
   spec.description   = %q{A ruby library for Mpayer.}

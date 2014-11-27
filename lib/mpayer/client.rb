@@ -1,6 +1,5 @@
 require 'httparty'
 require "wsse"
-require "pry"
 
 module Mpayer
 	class Client
@@ -11,18 +10,17 @@ module Mpayer
 	    @user_no = user_no
 	    @token   = token
 	    @auth    = WSSE::header(@user_no, @token)
-	    @header  = {'Content-Type'=> 'application/json', 'Accept' => 'application/json', 'X-WSSE' => "#{@auth}" }
+	    @header  = { 'Content-Type'=> 'application/json', 'Accept' => 'application/json', 'X-WSSE' => "#{@auth}" }
 	  end
-		
+
 		def all_clients
-		  @all_url ="#{@@base_uri}/clients/all_clients.json"
+		  @all_url = "#{@@base_uri}/clients/all_clients.json?"
 		  HTTParty.get(@all_url.to_str, headers: @header)
 		end
 
 		def new_client(json_msg)
 		  @new_client_url = "#{@@base_uri}/clients.json"
-		  HTTParty.post(
-		  		@new_client_url.to_str, body: json_msg.to_json, headers: @header)
+		  HTTParty.post(@new_client_url.to_str, body: json_msg.to_json, headers: @header)
 		end
 
 		def client_accounts(client_id)
@@ -46,9 +44,8 @@ module Mpayer
 		end
 
 		def new_account(json_msg, client_id)
-		  @new_account_url ="#{@@base_uri}/clients/#{client_id}/accounts/new.json" 
-		  HTTParty.post(
-		  		@new_account_url.to_str, body: json_msg.to_json, headers: @header)
+		  @new_account_url ="#{@@base_uri}/clients/#{client_id}/accounts/new.json"
+		  HTTParty.post(@new_account_url.to_str, body: json_msg.to_json, headers: @header)
 		end
 	end
 

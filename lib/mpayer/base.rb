@@ -5,7 +5,7 @@ require "pry"
 module Mpayer
   class Base
   	include HTTParty
-    @@base_uri "https://app.mpayer.co.ke/api"
+    @@base_uri = "https://app.mpayer.co.ke/api"
 
     def initialize(user_no, token)
       @user_no = user_no
