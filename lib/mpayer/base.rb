@@ -1,6 +1,5 @@
 require 'httparty'
 require "wsse"
-require "pry"
 
 module Mpayer
   class Base

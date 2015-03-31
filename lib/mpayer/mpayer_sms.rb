@@ -1,6 +1,5 @@
 require 'httparty'
 require "wsse"
-require "pry"
 
 module Mpayer
 	class MpayerSms
@@ -16,8 +15,7 @@ module Mpayer
 
 		def send_message(json_msg)
 	    @send_message_link = "#{@@base_uri}/messages"
-	    HTTParty.post(
-	    		@send_message_link.to_str, body: json_msg.to_json, headers: @header)
+	    HTTParty.post(@send_message_link.to_str, body: json_msg.to_json, headers: @header)
 	  end
 	end
 

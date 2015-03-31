@@ -1,6 +1,5 @@
 require 'httparty'
 require "wsse"
-require "pry"
 
 module Mpayer
 	class Payable
@@ -21,22 +20,19 @@ module Mpayer
 
 		def new(json_msg)
 		  @new_payable_url = "#{@@base_uri}/payables"
-		  HTTParty.post(
-	    		@new_payable_url.to_str, body: json_msg.to_json, headers: @header)
+		  HTTParty.post(@new_payable_url.to_str, body: json_msg.to_json, headers: @header)
 		end
 
 		def delete(payable_id)
 		  @delete_payable_url = "#{@@base_uri}/payables/#{payable_id}"
-		  HTTParty.delete(
-	    		@delete_payable_url.to_str, body: json_msg.to_json, headers: @header)
+		  HTTParty.delete(@delete_payable_url.to_str, body: json_msg.to_json, headers: @header)
 		end
 
 		def fetch_batch_records(*args)
 			@headers = { 'Content-Type' => 'application/x-www-form-urlencoded', 'X-WSSE' => WSSE::header(@user_no, @token) }
 		  @batch_records_url = "#{@@base_uri}/batch"
 		  json_msg = "requests=#{args[0].to_json}"
-		  HTTParty.post(
-	    		@batch_records_url.to_str, body: json_msg, headers: @headers)
+		  HTTParty.post(@batch_records_url.to_str, body: json_msg, headers: @headers)
 		end
 
 		def get_payable_by_ids(*args)
