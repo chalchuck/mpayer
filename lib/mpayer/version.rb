@@ -1,3 +1,3 @@
 module Mpayer
-  VERSION = "0.0.3"
+  VERSION = "0.0.30"
 end
