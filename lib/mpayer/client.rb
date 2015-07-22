@@ -1,52 +1,45 @@
-require 'httparty'
-require "wsse"
+class Mpayer::Client < Mpayer::Base
 
-module Mpayer
-	class Client
-		include HTTParty
-		@@base_uri = "https://app.mpayer.co.ke/api"
+	#GET
+	#/clients/all_clients.json
+	def all
+		get('/clients/all_clients.json')
+	end
 
-		def initialize(user_no, token)
-	    @user_no = user_no
-	    @token   = token
-	    @auth    = WSSE::header(@user_no, @token)
-	    @header  = { 'Content-Type'=> 'application/json', 'Accept' => 'application/json', 'X-WSSE' => "#{@auth}" }
-	  end
+	#POST
+	#/clients.json
+	def create_on_mpayer(json_body)
+		post(%{/clients}, body: json_body)
+	end
 
-		def all_clients
-		  @all_url = "#{@@base_uri}/clients/all_clients.json?"
-		  HTTParty.get(@all_url.to_str, headers: @header)
-		end
+	#GET
+	#/clients/:id #id: 21556
+	def fetch_client(id)
+		get(%{/clients/#{id}.json})
+	end
 
-		def new_client(json_msg)
-		  @new_client_url = "#{@@base_uri}/clients.json"
-		  HTTParty.post(@new_client_url.to_str, body: json_msg.to_json, headers: @header)
-		end
+	# /clients/:id/accounts.json"
+	# GET
+	def fetch_accounts(id)
+		get(%{/clients/#{id}/accounts.json})
+	end
 
-		def client_accounts(client_id)
-		  @client_accounts_url = "#{@@base_uri}/clients/#{client_id}/accounts.json"
-		  HTTParty.get(@client_accounts_url.to_str, headers: @header)
-		end
+	# /clients/:client_id/accounts.json"
+	# GET
+	def fetch_account(id)
+		get(%{/clients/#{id}/accounts.json})
+	end
 
-		def find_account(client_id, account_id)
-		  @find_account_url ="#{@@base_uri}/clients/#{client_id}/accounts/#{account_id}"
-		  HTTParty.get(@find_account_url.to_str, headers: @header)
-		end
+	#GET
+	#/clients/:client_id/accounts/:ac_id/transactions"
+	def fetch_transactions(client_id, ac_id)
+		get(%{/clients/#{client_id}/accounts/#{ac_id}/transactions.json})
+	end
 
-		def client_transactions(ac_id, client_id)
-		  @transactions_url ="#{@@base_uri}/clients/#{client_id}/accounts/#{ac_id}/transactions"
-		  HTTParty.get(@transactions_url.to_str, headers: @header)
-		end
-
-		def client_payables(client_id)
-		  @client_payables_url ="#{@@base_uri}/clients/#{client_id}/payables"
-		  HTTParty.get(@client_payables_url.to_str, headers: @header)
-		end
-
-		def new_account(json_msg, client_id)
-		  @new_account_url ="#{@@base_uri}/clients/#{client_id}/accounts/new.json"
-		  HTTParty.post(@new_account_url.to_str, body: json_msg.to_json, headers: @header)
-		end
+	#POST
+	#/clients/:client_id/accounts/new.json
+	def create_client_account(id, json_body)
+		post(%{/clients/#{id}/accounts/new.json}, body: json_body)
 	end
 
 end

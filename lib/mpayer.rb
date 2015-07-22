@@ -1,7 +1,12 @@
-require "mpayer/version"
-require 'mpayer/base'
-require 'mpayer/client'
-require 'mpayer/mpayer_account'
-require 'mpayer/mpayer_sms'
-require 'mpayer/payable'
-require 'mpayer/transaction'
+module Mpayer
+	require 'typhoeus'
+	require 'json'
+	require 'mpayer/account'
+	require 'mpayer/base'
+	require 'mpayer/batch'
+	require 'mpayer/client'
+	require 'mpayer/payable'
+	require 'mpayer/sms'
+	require 'mpayer/transaction'
+	require "mpayer/version"
+end
