@@ -1,6 +1,6 @@
-# Mpayer
+#Mpayer.
+A fast lightweight and minimalist wrapper around the Mpayer api
 
-TODO: Write a gem description
 
 ## Installation
 
