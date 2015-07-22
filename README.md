@@ -4,6 +4,7 @@ A fast lightweight and minimalist wrapper around the Mpayer api
 [![Build Status](https://travis-ci.org/chalchuck/mpayer.svg?branch=master)](https://travis-ci.org/chalchuck/mpayer)
 [![Code Climate](https://codeclimate.com/github/chalchuck/mpayer/badges/gpa.svg)](https://codeclimate.com/github/chalchuck/mpayer)
 [![Test Coverage](https://codeclimate.com/github/chalchuck/mpayer/badges/coverage.svg)](https://codeclimate.com/github/chalchuck/mpayer/coverage)
+[![Dependency Status](https://gemnasium.com/chalchuck/mpayer.svg)](https://gemnasium.com/chalchuck/mpayer)
 
 ## Installation
 
