@@ -1,6 +1,7 @@
 #Mpayer.
 A fast lightweight and minimalist wrapper around the Mpayer api
 
+[![Build Status](https://travis-ci.org/chalchuck/mpayer.svg?branch=master)](https://travis-ci.org/chalchuck/mpayer)
 
 ## Installation
 
