@@ -17,13 +17,13 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency 'json'
-  spec.add_runtime_dependency 'typhoeus'
+  spec.add_runtime_dependency 'json', '~>1.0'
+  spec.add_runtime_dependency 'typhoeus', '~> 0.6', '>= 0.7.2'
 
-  spec.add_development_dependency "bundler", "~> 1.6"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency 'pry'
-  spec.add_development_dependency 'minitest'
-  spec.add_development_dependency 'minitest-reporters'
-  spec.add_development_dependency 'shoulda-context'
+  spec.add_development_dependency "bundler", "~> 1.0"
+  spec.add_development_dependency "rake", '~> 10.0'
+  spec.add_development_dependency 'pry', '~> 0.5', '>= 0.9.0'
+  spec.add_development_dependency 'minitest', '~> 4.7.0'
+  spec.add_development_dependency 'minitest-reporters', '~> 0.7'
+  spec.add_development_dependency 'shoulda-context', '~> 1.0', '>= 1.2.1'
 end
